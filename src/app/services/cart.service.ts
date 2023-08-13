@@ -12,8 +12,8 @@ export class CartService {
 
   addToCart(item: CartItem): void {
     const items = [...this.cart.value.items];
-    const itemInCart = items.find((_item) => item.id === item.id);
 
+    const itemInCart = items.find((_item) => item.id === item.id);
     if (itemInCart) {
       itemInCart.quantity += 1;
     } else {
@@ -22,7 +22,6 @@ export class CartService {
 
     this.cart.next({ items });
     this._snackbar.open("Item added to cart", "ok", { duration: 3000 });
-    console.log(this.cart.value);
   }
 
   getTotal(items: Array<CartItem>): number {
